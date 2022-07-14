@@ -1,8 +1,8 @@
 import { Children, ReactNode, useEffect, useRef, useState } from 'react';
 
 export interface IPopOverProps {
-  show: Boolean;
-  onClose: Function;
+  show: boolean;
+  onClose: (value: boolean) => void;
   children?: ReactNode;
   className?: string;
   position?: {
@@ -15,7 +15,7 @@ export interface IPopOverProps {
 
 export default function PopOver({
   show = false,
-  onClose = () => {},
+  onClose = () => undefined,
   className = '',
   position = {
     top: 0,

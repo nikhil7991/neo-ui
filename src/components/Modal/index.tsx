@@ -1,17 +1,17 @@
 import { ReactNode, MouseEventHandler, useRef, useEffect } from 'react';
 type ModalProps = {
-  show: Boolean;
+  show: boolean;
   children?: ReactNode;
   align: 'center' | 'right';
   className?: string;
   onClose?: MouseEventHandler;
 };
-const Modal = ({ show = false, children, align, className = '', onClose = () => {} }: ModalProps) => {
+const Modal = ({ show = false, children, align, className = '', onClose = () => undefined }: ModalProps) => {
   const ref = useRef<HTMLInputElement>(null);
   useEffect(() => {
     const handleClickOutside = (event: any) => {
       if (ref.current && !ref.current.contains(event.target)) {
-        onClose && onClose(event);
+        onClose(event);
       }
     };
     document.addEventListener('click', handleClickOutside, true);

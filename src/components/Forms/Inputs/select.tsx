@@ -4,11 +4,11 @@ type Props = {
   labelClassName?: string;
   label?: string;
   placeholder?: string;
-  options: Array<Option>;
+  options: Option[];
   name?: string;
   id?: string;
-  register?: Function;
-  onChange?: Function;
+  register?: any;
+  onChange?: (value: string) => void;
   validation?: object;
   error?: boolean;
   errorText?: string;
@@ -30,8 +30,8 @@ const Select = ({
   options,
   id = '',
   name = '',
-  register = () => {},
-  onChange = () => {},
+  register = () => undefined,
+  onChange = () => undefined,
   validation,
   error = false,
   errorText = 'Please enter the value',

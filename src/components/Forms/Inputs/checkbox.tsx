@@ -1,12 +1,18 @@
-type Props = {
+interface CheckboxProps {
   className?: string;
   label?: string;
   error?: boolean;
   errorText?: string;
   id: string;
-};
+}
 
-const Checkbox = ({ className, label, error = false, errorText = 'Please enter the value', id = '' }: Props) => (
+const Checkbox = ({
+  className,
+  label,
+  error = false,
+  errorText = 'Please enter the value',
+  id = '',
+}: CheckboxProps) => (
   <div className={`flex mb-6 ${className ? className : ''}`}>
     <input className="mr-2 rounded" type="checkbox" id={id}></input>
     {label && (

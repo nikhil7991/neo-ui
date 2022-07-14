@@ -2,7 +2,7 @@ import React, { ReactNode, ReactElement, useState } from 'react';
 
 type TabProps = {
   className?: string;
-  children: Array<ReactElement>;
+  children: ReactElement[];
   tabTitleClassName?: string;
   tabTitleActiveClassName?: string;
 };
@@ -68,7 +68,7 @@ export const Tab = ({ className = '', children, tabTitleClassName = '', tabTitle
                 setActiveKey(child.key);
               },
               active: child.key === activeKey,
-              tabTitleActiveClassName: tabTitleActiveClassName,
+              tabTitleActiveClassName,
             });
           }
         })}

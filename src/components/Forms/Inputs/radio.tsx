@@ -11,12 +11,12 @@ type Props = {
   id?: string;
   value?: string;
   defaultValue?: string;
-  register?: Function;
+  register?: any;
   validation?: object;
   error?: FieldError;
   errorText?: string;
-  onChange?: Function;
-  options: Array<Option>;
+  onChange?: (value: string) => void;
+  options: Option[];
 };
 
 type Option = {
@@ -34,8 +34,8 @@ const Radio = ({
   name = '',
   defaultValue = '',
   value = '',
-  register = () => {},
-  onChange = () => {},
+  register = () => undefined,
+  onChange = () => undefined,
   validation,
   error,
   errorText = 'Please enter a value',

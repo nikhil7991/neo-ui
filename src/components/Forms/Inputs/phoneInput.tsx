@@ -11,11 +11,11 @@ type Props = {
   name?: string;
   id?: string;
   defaultValue?: string;
-  register?: Function;
+  register?: any;
   validation?: object;
   error?: FieldError;
   errorText?: string;
-  onChange?: Function;
+  onChange?: (value: string) => void;
   iconUrl?: string;
 };
 
@@ -29,8 +29,8 @@ const PhoneInput = ({
   id = '',
   name = '',
   defaultValue = '',
-  register = () => {},
-  onChange = () => {},
+  register = () => undefined,
+  onChange = () => undefined,
   validation,
   error,
   errorText = 'Please enter a value',
@@ -50,7 +50,7 @@ const PhoneInput = ({
   useEffect(() => {
     const handleClickOutside = (event: any) => {
       if (ref.current && !ref.current.contains(event.target)) {
-        onClose && onClose(event);
+        onClose(event);
       }
     };
     document.addEventListener('click', handleClickOutside, true);
@@ -105,7 +105,7 @@ const PhoneInput = ({
               ref={ref}
             >
               {PhoneCode.map((country) => {
-                var img = new Image();
+                const img = new Image();
                 img.src = country.flag;
                 return (
                   <div

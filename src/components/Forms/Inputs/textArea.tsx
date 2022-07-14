@@ -5,7 +5,7 @@ type Props = {
   name?: string;
   id?: string;
   rows?: number;
-  register?: Function;
+  register?: any;
   error?: boolean;
   errorText?: string;
 };
@@ -17,7 +17,7 @@ const TextArea = ({
   id = '',
   name = '',
   rows = 4,
-  register = () => {},
+  register = () => undefined,
   error = false,
   errorText = 'Please enter the value',
 }: Props) => (

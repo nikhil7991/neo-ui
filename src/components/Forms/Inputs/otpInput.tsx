@@ -9,11 +9,11 @@ type Props = {
   name?: string;
   id?: string;
   defaultValue?: string;
-  register?: Function;
+  register?: any;
   validation?: object;
   error?: FieldError;
   errorText?: string;
-  onChange?: Function;
+  onChange?: (value: string) => void;
   iconUrl?: string;
   maxLength: number;
 };
@@ -27,8 +27,8 @@ const OTPInput = ({
   id = '',
   name = '',
   defaultValue = '',
-  register = () => {},
-  onChange = () => {},
+  register = () => undefined,
+  onChange = () => undefined,
   validation,
   error,
   errorText = 'Please enter a value',

@@ -6,12 +6,12 @@ type Props = {
   labelClassName?: string;
   label?: string;
   placeholder?: string;
-  options: Array<Option>;
+  options: Option[];
   name?: string;
   id?: string;
-  register?: Function;
-  onChange?: Function;
-  setValue?: Function;
+  register?: any;
+  onChange?: (value: string) => void;
+  setValue?: (value: string, key: string) => void;
   validation?: object;
   error?: boolean;
   errorText?: string;
@@ -33,9 +33,9 @@ const CustomSelect = ({
   options,
   id = '',
   name = '',
-  register = () => {},
-  onChange = () => {},
-  setValue = () => {},
+  register = () => undefined,
+  onChange = () => undefined,
+  setValue = () => undefined,
   validation,
   error = false,
   errorText = 'Please enter the value',
@@ -54,7 +54,7 @@ const CustomSelect = ({
   useEffect(() => {
     const handleClickOutside = (event: any) => {
       if (ref.current && !ref.current.contains(event.target)) {
-        onClose && onClose(event);
+        onClose(event);
       }
     };
     document.addEventListener('click', handleClickOutside, true);

@@ -2,10 +2,10 @@ type Props = {
   className?: string;
   label?: string;
   placeholder?: string;
-  options: Array<Option>;
+  options: Option[];
   name?: string;
   id?: string;
-  register?: Function;
+  register?: any;
   validation?: object;
   error?: boolean;
   errorText?: string;
@@ -23,7 +23,7 @@ const MultiSelect = ({
   options,
   id = '',
   name = '',
-  register = () => {},
+  register = () => undefined,
   validation,
   error = false,
   errorText = 'Please enter the value',
