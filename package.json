@@ -1,6 +1,6 @@
 {
-  "name": "neo-ui",
-  "version": "1.0.1",
+  "name": "@ocius/neo-ui",
+  "version": "1.0.2",
   "description": "A lightweight UI components based on tailwind css",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
