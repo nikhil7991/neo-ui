@@ -1,6 +1,6 @@
 {
   "name": "@ocius/neo-ui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A lightweight UI components based on tailwind css",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,11 @@
     "postversion": "git push && git push --tags"
   },
   "files": [
-    "lib/**/*"
+    "dist/**/*"
+  ],
+  "keywords": [
+    "UI library",
+    "UI Components"
   ],
   "repository": "https://github.com/nikhil7991/neo-ui",
   "author": "Nikhil Negi <nkhil.negi7991@gmail.com>",
