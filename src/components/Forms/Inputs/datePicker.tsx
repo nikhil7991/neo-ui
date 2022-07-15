@@ -16,6 +16,8 @@ type Props = {
   errorText?: string;
   onChange?: (value: string) => void;
   iconUrl?: string;
+  min?: string;
+  max?: string;
 };
 
 const DatePicker = ({
@@ -34,6 +36,8 @@ const DatePicker = ({
   error,
   errorText = 'Please enter a value',
   iconUrl = '',
+  min,
+  max,
 }: Props) => (
   <div className={`grid grid-cols-1 mb-4 relative ${className ? className : ''}`}>
     {label && <label className={`text-xs text-white/[0.8] mb-1 ${labelClassName}`}>{label}</label>}
@@ -44,6 +48,8 @@ const DatePicker = ({
           error ? 'border border-danger' : ''
         }`}
         type={type}
+        min={min}
+        max={max}
         id={id}
         name={name}
         placeholder={placeholder}
