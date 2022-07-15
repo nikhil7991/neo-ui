@@ -4,5 +4,6 @@ import Select from './select';
 import TextArea from './textArea';
 import MultiSelect from './multiSelect';
 import Radio from './radio';
+import DatePicker from './datePicker';
 
-export { Input, Checkbox, Select, TextArea, MultiSelect, Radio };
+export { Input, Checkbox, Select, TextArea, MultiSelect, Radio, DatePicker };

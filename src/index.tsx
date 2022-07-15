@@ -1,3 +1,3 @@
-import { Input, Checkbox, Select, TextArea, MultiSelect, Radio } from './components/Forms/Inputs/index';
+import { Input, Checkbox, Select, TextArea, MultiSelect, Radio, DatePicker } from './components/Forms/Inputs/index';
 
-export { Input, Checkbox, Select, TextArea, MultiSelect, Radio };
+export { Input, Checkbox, Select, TextArea, MultiSelect, Radio, DatePicker };
