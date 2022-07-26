@@ -16,6 +16,7 @@ type Props = {
   errorText?: string;
   onChange?: (value: string) => void;
   iconUrl?: string;
+  disabled?: boolean;
 };
 
 const Input = ({
@@ -34,6 +35,7 @@ const Input = ({
   error,
   errorText = 'Please enter a value',
   iconUrl = '',
+  disabled = false,
 }: Props) => (
   <div className={`grid grid-cols-1 mb-4 relative ${className ? className : ''}`}>
     {label && <label className={`text-xs text-white/[0.8] mb-1 ${labelClassName}`}>{label}</label>}
@@ -41,8 +43,8 @@ const Input = ({
       {iconUrl && <img src={iconUrl} alt="start" className={`absolute top-3 left-3`} />}
       <input
         className={`rounded-md text-sm py-3.5 px-3 ${inputClassName} ${iconUrl ? 'pl-10' : ''} ${
-          error ? 'border border-danger' : ''
-        }`}
+          error ? 'border !border-danger' : ''
+        } ${disabled ? 'cursor-no-drop' : ''}`}
         type={type}
         id={id}
         name={name}

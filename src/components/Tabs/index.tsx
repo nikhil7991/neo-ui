@@ -3,8 +3,9 @@ import React, { ReactNode, ReactElement, useState } from 'react';
 type TabProps = {
   className?: string;
   children: ReactElement[];
-  tabTitleClassName?: string;
+  titleContainerClassName?: string;
   tabTitleActiveClassName?: string;
+  tabTitleClassName?: string;
 };
 
 type TabTitleProps = {
@@ -12,7 +13,8 @@ type TabTitleProps = {
   key: number;
   onClick?: () => void;
   active?: boolean;
-  tabTitleActiveClassName?: string;
+  className?: string;
+  activeClassName?: string;
 };
 
 type TabContentProps = {
@@ -21,11 +23,11 @@ type TabContentProps = {
   className?: string;
 };
 
-const TabTitle = ({ children, key, onClick, active, tabTitleActiveClassName = '' }: TabTitleProps) => {
+const TabTitle = ({ children, key, onClick, active, activeClassName = '', className = '' }: TabTitleProps) => {
   return (
     <div
-      className={`py-4 px-7 cursor-pointer font-medium font-dmSans shrink-0 text-sm text-center ${
-        active ? `text-white border-b-2 border-danger ${tabTitleActiveClassName}` : 'text-white/[0.6]'
+      className={`py-4 px-7 cursor-pointer font-medium font-dmSans shrink-0 text-sm text-center ${className} ${
+        active ? `text-white border-b-2 border-danger ${activeClassName}` : 'text-white/[0.6]'
       }`}
       key={key}
       onClick={onClick}
@@ -43,7 +45,13 @@ const TabContent = ({ children, key, className = '' }: TabContentProps) => {
   );
 };
 
-export const Tab = ({ className = '', children, tabTitleClassName = '', tabTitleActiveClassName = '' }: TabProps) => {
+export const Tab = ({
+  className = '',
+  children,
+  titleContainerClassName,
+  tabTitleActiveClassName = '',
+  tabTitleClassName = '',
+}: TabProps) => {
   const [activeKey, setActiveKey] = useState<any>('1');
   const getNumberOfChildren = () => {
     let count = 0;
@@ -59,7 +67,7 @@ export const Tab = ({ className = '', children, tabTitleClassName = '', tabTitle
   return (
     <div className={`${className}`}>
       <div
-        className={`grid grid-cols-${numberOfTabs} justify-between border-b border-white/[0.2] overflow-y-auto md:overflow-y-auto md:overflow-x-clip ${tabTitleClassName}`}
+        className={`grid grid-cols-${numberOfTabs} justify-between border-b border-white/[0.2] overflow-y-auto md:overflow-y-auto md:overflow-x-clip ${titleContainerClassName}`}
       >
         {React.Children.map(children, (child) => {
           if (child.type === TabTitle) {
@@ -68,7 +76,8 @@ export const Tab = ({ className = '', children, tabTitleClassName = '', tabTitle
                 setActiveKey(child.key);
               },
               active: child.key === activeKey,
-              tabTitleActiveClassName,
+              activeClassName: tabTitleActiveClassName,
+              // className: tabTitleClassName,
             });
           }
         })}
